@@ -48,10 +48,10 @@ and other ......
    pip install requirement.txt
    ```
 
-4. **Run the notebook**
+4. **Run the script**
 
    ```bash
-   jupyter notebook ScrapAmazonphoneData.ipynb
+   python SearchAnyProduct
    ```
 
 ---
