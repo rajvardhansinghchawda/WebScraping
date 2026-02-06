@@ -1,75 +1,130 @@
-# 📱 Amazon Phone Data Scraper
+# Amazon Product Scraper (Python + Selenium)
 
-This project is a Jupyter Notebook that scrapes phone data from Amazon by opening a page and then further opening all the page for detail information of the phone , processes it, and stores it for analysis.
-It is useful for collecting datasets for research, comparison, and price analysis.
+## 📌 Project Overview
 
----
+This project is a **Python-based web scraping automation tool** that extracts detailed product information from **Amazon India** based on a user’s search query. The scraper automatically navigates through search result pages, opens individual product pages, collects structured product data, and exports the results into an **Excel file** for further analysis.
 
-## 🚀 Features
-
-* Scrapes phone details (name, price, rating, etc.) from Amazon.
-* Cleans and structures the data into a tabular format.
-* Supports saving data into CSV/Excel for further use.
-* Easy to extend for scraping other categories.
+This project is built mainly for **learning, practice purposes**.
 
 ---
 
-## 📂 Project Structure
+## 🎯 Objectives
+
+* Automate product search on Amazon
+* Handle **dynamic content** using Selenium
+* Extract detailed product-level information
+* Store data in a clean, structured format
+* Export final data to **Excel (.xlsx)** using Pandas
+
+---
+
+## 🛠️ Technologies & Libraries Used
+
+* **Python 3** – Core programming language
+* **Selenium** – Browser automation & dynamic content handling
+* **Chrome WebDriver** – Automates Google Chrome
+* **Pandas** – Data storage and Excel export
+* **BeautifulSoup (bs4)** – HTML parsing (optional / future use)
+* **OS & Time modules** – File handling and delays
+
+---
+
+## ⚙️ Features
+
+* Headless browser execution (runs without UI)
+* Automated scrolling to load lazy-loaded content
+* Multi-page navigation (Next page handling)
+* Safe element extraction with error handling
+* Extracts both **text data** and **tabular specifications**
+* Stores output in Excel format
+* Configurable product search via user input
+
+---
+
+## 📂 Data Extracted
+
+For each product, the scraper collects:
+
+* Product Title
+* Price & Actual Price
+* Discount / Savings Percentage
+* Review Count
+* Star Ratings
+* Store / Brand Name
+* Offers & Promotional Messages
+* Product Variants
+* Bullet-point Descriptions
+* Technical Specifications (tables)
+
+---
+
+## 🔄 Workflow Explanation
+
+1. User enters a **search keyword** (e.g., mobile phones)
+2. Script opens Amazon India in headless Chrome
+3. Product search is performed automatically
+4. All product URLs are collected from result pages
+5. Each product page is opened individually
+6. Product data is safely extracted
+7. Data is stored in a list of dictionaries
+8. Pandas converts data into a DataFrame
+9. Final output is saved as an Excel file
+
+---
+
+## ▶️ How to Run the Project
+
+### 1️⃣ Prerequisites
+
+* Python installed (3.8+ recommended)
+* Google Chrome installed
+* ChromeDriver matching your Chrome version
+
+### 2️⃣ Install Required Libraries
+
+```bash
+pip install selenium pandas bs4 openpyxl
+```
+
+### 3️⃣ Update ChromeDriver Path
+
+Update the following line in the script:
+
+```python
+path = "D:/Web Scraping/chromedriver-win64/chromedriver.exe"
+```
+
+### 4️⃣ Run the Script
+
+```bash
+python scraper.py
+```
+
+### 5️⃣ Output
+
+An Excel file will be generated:
 
 ```
-ScrapAmazonphoneData.ipynb   # Main Jupyter Notebook
-requirements.txt             # Dependencies (create manually if not included)
-README.md                    # Project Documentation
-and other ......                  
+<search_text>_data.xlsx
 ```
 
 ---
 
-## ⚙️ Installation & Setup
+## 🧪 Error Handling & Stability
 
-1. **Clone the repository**
-
-   ```bash
-   git clone https://github.com/rajvardhansinghchawda/Web_Scraping.git
-   cd Web_Scraping
-   ```
-
-2. **Create a virtual environment & activate it**
-
-   ```bash
-   python -m venv venv
-   source venv/bin/activate   # Mac/Linux
-   venv\Scripts\activate      # Windows
-   ```
-
-3. **Install dependencies**\\
-
-   ```bash
-   pip install requirement.txt
-   ```
-
-4. **Run the script**
-
-   ```bash
-   python SearchAnyProduct
-   ```
+* Uses `try-except` blocks to avoid crashes
+* Handles missing elements gracefully
+* Uses delays (`time.sleep`) to prevent page load issues
+* Stops scraping after a defined limit (100 products)
 
 ---
 
-##
+## ⚠️ Important Notes
 
----
+* This project is intended for **educational purposes only**
+* Web scraping should always respect **website terms & policies**
+* Avoid excessive requests to prevent IP blocking
 
-##
 
----
 
-## ⚠️ Disclaimer
 
-* This project is for **educational purposes only**.
-* Scraping Amazon may violate their **Terms of Service**.
-* Use responsibly and avoid sending too many requests.
-
----
-
-##
